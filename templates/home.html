@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello {{name}}!!!!!!!</h1>
+{% comment %} <h1>Hello {{name}}!!!!!!!</h1> {% endcomment %}
 
 <!-- <form action="add">
     <label for="num1">Enter 1st number :</label> <input type="text" id="num1" name="num1"><br>
@@ -9,11 +9,36 @@
     <input type="submit">
 </form> -->
 
-<form action="add" method="post">
+{% comment %} <form action="add" method="post">
     {% csrf_token %}
     <label for="num1">Enter 1st number :</label> <input type="text" id="num1" name="num1"><br>
     <label for="num2">Enter 2nd number :</label> <input type="text" id="num2" name="num2"><br>
     <input type="submit">
-</form>
+</form> {% endcomment %}
+
+{% comment %} <div>{{mydata}}</div> {% endcomment %}
+  <div>{{clist}} </div>
+  <br>
+    {% for n in clist %}
+
+    <div>{{forloop.counter}}. {{n}} </div>
+
+    {% endfor %}
+
+<br>
+
+<table border="1" cellpadding="10">
+    <tr><th>Name</th><th>Phone Number</th></tr>
+{% for d in student_details %}
+
+    <tr>
+        <td>{{d.name}}</td><td>{{d.phone}}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+{% comment %} POST {% endcomment %}
+
 
 {% endblock %}
